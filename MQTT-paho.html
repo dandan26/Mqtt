@@ -61,18 +61,17 @@
                  <legend>Broker:</legend>
                  <span class='ad'>Address:</span> 
                  <br>
-                 <input class="form-control" id ='adress' type="text">
-                 <br>
-                 <button class=' btn btn-primary' id="btn-connect">Connect</button>
-                 <br>
-                 <span class ='ad'>Status:</span>
-                 <div id = 'Stat'>
-                  </div>
+                 <input class="form-control" id ='broker'
+                  value="ws://broker.hivemq.com:8000/mqtt"><br>
+                 <input id="connect" class="btn btn-primary" type="button" value="Connect">
+          <input id="disconnect" class="btn btn-primary" type="button" value="Disconnect" disabled><br><br>
+                 Status: <input id="status" class="btn btn-default" type="button" value="....................."
+            disabled><br>
                  <br>
                 </fieldset>
                 </div>
             </form>
-            <table class="table table-bordered data-table table1">
+           <!--  <table class="table table-bordered data-table table1">
                 <tbody>
                 <thead>
                   <th>Topic</th>
@@ -82,7 +81,7 @@
                 </tbody>
               </table>
             <div id="load">
-            </div>   
+            </div>    -->
         </div>
         <div class="col-sm-4 div2">
             <form  class="form-group" id = "form2">
@@ -97,13 +96,13 @@
                  <br>
                  <input class="form-control" id='Payload' name ='payload' type = 'text'>
                  <br>
-                 <center><button class=' btn btn-primary' id="btn-publish">Publish</button></center>
+                 <center><button class=' btn btn-primary' id="btn-publish" value="Publish">Publish</button></center>
                  
                 </fieldset>
                 </div>
             </form>
             <br>
-            <table class="table table-bordered data-table table2">
+            <!-- <table class="table table-bordered data-table table2">
                 <tbody class='table1'>
                 <thead>
                   <th>Topic</th>
@@ -111,7 +110,7 @@
                   <th>Time Stamp</th>
                 </thead>
                 </tbody>
-              </table>
+              </table> -->
             
         </div>
         <div class="col-sm-4 div3">
@@ -121,15 +120,15 @@
                  <legend>Subscribe:</legend>
                  <span class ='ad'>Topic:</span>
                  <br>
-                 <input class="form-control" type="text">
+                 <input id="subTopic" class="form-control" type="text" >
                  <br>
-                 <button class=' btn btn-primary' id="btn-Subscribe">Subscribe</button>
-                 <button class=' btn btn-primary' id="btn-Unsubscribe">Unscubscribe</button>
+                 <button id="btn-Subscribe" class=' btn btn-primary' value="Subscribe">Subscribe</button>
+                 <button class=' btn btn-primary' id="btn-Unsubscribe" value="Unsubscribe">Unscubscribe</button>
                 <br><br>
                 </fieldset>
                 </div>
             </form>
-            <table class="table table-bordered data-table table3">
+            <!-- <table class="table table-bordered data-table table3">
                 <tbody>
                 <thead>
                   <th>Topic</th>
@@ -137,14 +136,30 @@
                   <th>Time Stamp</th>
                 </thead>
                 </tbody>
-              </table>
+              </table> -->
+
+
             
         </div>
+
+        <table id="receiver" class="table  table-hover ">
+        <thead class="thead-dark">
+          <th>Topic</th>
+          <th>Payload</th>
+          <th>Time Stamp</th>
+        </thead>
+        <tbody id="msg">
+
+        </tbody>
+      </table>
+      <div class="row">
+
+      </div>
       </div>
     </div>
 
 </body>
 
-<script src="scripts/browserMqtt.js"></script>
-<script src="scripts/controller.js"></script>
+<script src="browserMqtt.js"></script>
+<script src="controller.js"></script>
 </html>
